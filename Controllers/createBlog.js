@@ -1,6 +1,6 @@
 const Post = require("../models/blog");
 
-// Create a blog post
+
 const createBlog = async (req, res) => {
   try {
     const { title, content, author } = req.body;
@@ -14,7 +14,6 @@ const createBlog = async (req, res) => {
   }
 };
 
-// Get all posts
 const getAllPosts = async (req, res) => {
   try {
     const posts = await Post.find().sort({ createdAt: -1 });
@@ -24,7 +23,6 @@ const getAllPosts = async (req, res) => {
   }
 };
 
-// Get a single post by ID
 const getPostById = async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
@@ -35,7 +33,6 @@ const getPostById = async (req, res) => {
   }
 };
 
-// Update a post by ID
 const updatePost = async (req, res) => {
   try {
     const { title, content, author } = req.body;
@@ -51,7 +48,6 @@ const updatePost = async (req, res) => {
   }
 };
 
-// Delete a post by ID
 const deletePost = async (req, res) => {
   try {
     const deletedPost = await Post.findByIdAndDelete(req.params.id);
